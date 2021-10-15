@@ -1,0 +1,2 @@
+# CinemachinePrac
+CinemachineとInputsystemを使ってみる
