@@ -76,9 +76,9 @@ Shader "Custom/Mandelbrot"
                 fixed col_g = 0.5 + sin(col * 6.28 + 2.09) / 2;
                 fixed col_b = 0.5 + sin(col * 6.28 + 4.19) / 2;
                 if (col == 1) {
-                    col_r = 0;
-                    col_g = 0;
-                    col_b = 0;
+                    col_r = 0.1;
+                    col_g = 0.5;
+                    col_b = 0.7;
                 }
                 return fixed4(col_r,col_g,col_b,0);
             }
