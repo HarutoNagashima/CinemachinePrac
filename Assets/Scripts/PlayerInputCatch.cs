@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputCatch : MonoBehaviour
 {
-    protected Vector2 gamePad;
+    private Vector2 gamePad;
     public void CatchInput(InputAction.CallbackContext context)
     {
         // ゲームパッドの入力取得
         gamePad = context.ReadValue<Vector2>();
-        Debug.Log(gamePad);
     }
+
+    public Vector2 GetGamePad => gamePad;
 }

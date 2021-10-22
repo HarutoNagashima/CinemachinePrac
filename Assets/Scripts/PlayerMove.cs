@@ -1,27 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : PlayerInput
+public class PlayerMove : MonoBehaviour
 {
     // 移動速度
     [SerializeField]
     private float moveSpeed = 2.0f;
     // 移動量
     private Vector3 mov = Vector3.zero;
+    // ゲームパッドの変数
+    private Vector2 gamePad;
+    /*// 入力を受け取るスクリプトの参照
+    private PlayerInputCatch playerInput;*/
 
     public void playerMove(InputAction.CallbackContext context)
     {
         // ゲームパッドのNullチェック
         if (Gamepad.current == null) return;
+        // 操作取得
+        gamePad = context.ReadValue<Vector2>();
         // カメラの方向からX-Z平面の単位ベクトルを取得
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         // 移動量の計算
         mov = cameraForward * gamePad.y * moveSpeed * Time.deltaTime
             + Camera.main.transform.right * gamePad.x * moveSpeed * Time.deltaTime;
 
-        /*switch (context.phase)
+        switch (context.phase)
         {
             // 入力開始
             case InputActionPhase.Started:
@@ -34,15 +38,13 @@ public class PlayerMove : PlayerInput
             default:
                 transform.forward = mov;
                 break;
-        }*/
-        transform.forward = mov;
-
+        }
     }
 
     void FixedUpdate()
     {
         // 移動させる
-        this.transform.position += mov;
+        transform.position += mov;
     }
 
 }
