@@ -15,8 +15,8 @@ namespace SimpleFolderIcon.Editor
 
         static void DrawFolderIcon(string guid, Rect rect)
         {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconDictionary = IconDictionaryCreator.IconDictionary;
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            System.Collections.Generic.Dictionary<string, Texture> iconDictionary = IconDictionaryCreator.IconDictionary;
 
             if (path == "" ||
                 Event.current.type != EventType.Repaint ||
@@ -41,7 +41,7 @@ namespace SimpleFolderIcon.Editor
                 imageRect = new Rect(rect.x + 2, rect.y - 1, rect.height + 2, rect.height + 2);
             }
 
-            var texture = IconDictionaryCreator.IconDictionary[Path.GetFileName(path)];
+            Texture texture = IconDictionaryCreator.IconDictionary[Path.GetFileName(path)];
             if (texture == null)
             {
                 return;
