@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 public class VcamRotate : MonoBehaviour
 {
@@ -29,12 +27,12 @@ public class VcamRotate : MonoBehaviour
 
     void Start()
     {
-        _transposer=_vCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
+        _transposer = _vCam.GetCinemachineComponent<CinemachineOrbitalTransposer>();
     }
 
     void FixedUpdate()
     {
         _transposer.m_Heading.m_Bias += _gamepad.x;
-        _transposer.m_FollowOffset.y += _gamepad.y *_rotateSpeed *Time.deltaTime;
+        _transposer.m_FollowOffset.y += _gamepad.y * _rotateSpeed * Time.deltaTime;
     }
 }

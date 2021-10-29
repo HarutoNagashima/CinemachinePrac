@@ -13,8 +13,14 @@ public class PlayerMove : MonoBehaviour
     // 移動量
     private Vector3 mov = Vector3.zero;
 
-    // ゲームパッドの変数
-    private Vector2 _gamePad;
+    // ゲームパッド/左スティックの変数
+    private Vector2 _leftStick;
+
+    // ゲームパッド/ボタンの変数
+    private input
+
+    // キャラクターの変数
+    private GameObject _player;
 
     // アニメーターの参照
     [SerializeField]
@@ -23,38 +29,49 @@ public class PlayerMove : MonoBehaviour
     public void playerMove(InputAction.CallbackContext context)
     {
         // 操作取得
-        _gamePad = context.ReadValue<Vector2>().normalized;
+        _leftStick = context.ReadValue<Vector2>();
         // カメラの方向からX-Z平面の単位ベクトルを取得
-        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
         // 移動量の計算
-        mov = (cameraForward * _gamePad.y * _moveSpeed + Camera.main.transform.right * _gamePad.x * _moveSpeed) * Time.deltaTime;
+        mov = (cameraForward * _leftStick.y * _moveSpeed + Camera.main.transform.right * _leftStick.x * _moveSpeed) * Time.deltaTime;
 
         switch (context.phase)
         {
             // 入力開始
             case InputActionPhase.Started:
-                transform.forward = mov*(_rotateSpeed*Time.deltaTime); // 倒した方向に向く
+                _player.transform.forward = mov * (_rotateSpeed * Time.deltaTime); // 倒した方向に向く
                 break;
 
             case InputActionPhase.Canceled: // 入力終了
                 break;
 
             default:
-                transform.forward = mov * (_rotateSpeed * Time.deltaTime);
+                _player.transform.forward = mov * (_rotateSpeed * Time.deltaTime);
                 break;
         }
     }
 
+    private void dodge(InputAction.CallbackContext context)
+    {
+
+    }
+
     void ApplyAnimatorParameter()
     {
-        float speed = Mathf.Abs(_gamePad.magnitude);
+        float speed = Mathf.Abs(_leftStick.magnitude);
         _anim.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
+    }
+
+    void Start()
+    {
+        // プレイヤーオブジェクトをキャッシュ
+        _player = GameObject.Find("Player");
     }
 
     void FixedUpdate()
     {
         // 移動させる
-        transform.position += mov;
+        _player.transform.position += mov;
         // アニメーター設定
         ApplyAnimatorParameter();
     }
