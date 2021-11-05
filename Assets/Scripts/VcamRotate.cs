@@ -6,7 +6,7 @@ public class VcamRotate : MonoBehaviour
 {
 
     // ゲームパッドの変数
-    private Vector2 _gamepad;
+    private Vector2 _rightStick;
 
     // ヴァーチャルカメラのトランスポーザー
     private CinemachineOrbitalTransposer _transposer;
@@ -22,7 +22,7 @@ public class VcamRotate : MonoBehaviour
     public void camRotate(InputAction.CallbackContext context)
     {
         // 操作取得
-        _gamepad = context.ReadValue<Vector2>();
+        _rightStick = context.ReadValue<Vector2>();
     }
 
     void Start()
@@ -32,7 +32,7 @@ public class VcamRotate : MonoBehaviour
 
     void FixedUpdate()
     {
-        _transposer.m_Heading.m_Bias += _gamepad.x;
-        _transposer.m_FollowOffset.y += _gamepad.y * _rotateSpeed * Time.deltaTime;
+        _transposer.m_Heading.m_Bias += _rightStick.x;
+        _transposer.m_FollowOffset.y += _rightStick.y * _rotateSpeed * Time.deltaTime;
     }
 }
