@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private Animator _anim;
 
+    // 移動
     public void playerMove(InputAction.CallbackContext context)
     {
         // 操作取得
@@ -50,24 +51,24 @@ public class PlayerControl : MonoBehaviour
                 break;
         }
     }
+    // 回避
     public void dodge(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            Debug.Log("回避");
             _anim.SetTrigger("ButtonEast");
         }
     }
+    // 弱攻撃
     public void LightAtttack(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed && !_anim.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !_anim.IsInTransition(0))
         {
-            Debug.Log("弱攻撃");
             _anim.SetTrigger("LightAttack");
         }
     }
 
-
+    // アニメーターに値を設定
     void ApplyAnimatorParameter()
     {
         float speed = Mathf.Abs(_leftStick.magnitude);
