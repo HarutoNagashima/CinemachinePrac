@@ -7618,7 +7618,7 @@ MonoBehaviour:
     m_ActionId: 029b86eb-0794-4110-bf3a-48c56e2c7a89
     m_ActionName: Player/Dodge[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 2157752098222202940}

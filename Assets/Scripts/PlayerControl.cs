@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour
 
     // ゲームパッド/左スティックの変数
     private Vector2 _leftStick;
+    // キーボードの変数
+    private Vector2 _keyBooard;
 
     // ゲームパッド/ボタンの変数
     private bool _padButton;
@@ -31,6 +33,7 @@ public class PlayerControl : MonoBehaviour
     {
         // 操作取得
         _leftStick = context.ReadValue<Vector2>();
+        Debug.Log(_leftStick);
         // カメラの方向からX-Z平面の単位ベクトルを取得
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
         // 移動量の計算

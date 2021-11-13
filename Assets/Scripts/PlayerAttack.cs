@@ -36,9 +36,13 @@ public class PlayerAttack: MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        string hitColl= collision.gameObject.name;
-        Debug.Log(hitColl);
-        Destroy(collision.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        string hitColl = other.gameObject.name;
+        Debug.Log(other);
+        Destroy(other.gameObject);
     }
 
     void Start()
