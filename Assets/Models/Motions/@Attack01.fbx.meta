@@ -66,14 +66,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.35470402
+      - time: 0.3301541
         functionName: AttackStart
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 5fbc3ce50ef599f42be55328a91aee92, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.4499179
+      - time: 0.4793778
         functionName: AttackEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 5fbc3ce50ef599f42be55328a91aee92, type: 3}

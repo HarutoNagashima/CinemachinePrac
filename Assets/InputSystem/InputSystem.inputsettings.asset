@@ -16,6 +16,9 @@ MonoBehaviour:
   - XInputController
   - WebGLGamepad
   - Gamepad
+  - Keyboard
+  - VirtualMouse
+  - Touchscreen
   m_UpdateMode: 2
   m_CompensateForScreenOrientation: 1
   m_FilterNoiseOnCurrent: 0

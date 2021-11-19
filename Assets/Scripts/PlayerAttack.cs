@@ -34,10 +34,6 @@ public class PlayerAttack: MonoBehaviour
         _coll.enabled = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         string hitColl = other.gameObject.name;
