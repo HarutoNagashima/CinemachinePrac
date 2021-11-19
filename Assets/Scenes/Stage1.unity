@@ -8877,7 +8877,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectFlags:
     components: []
-  sharedInstanceID: 8c9384db-82c2-492e-955a-5b38ae998ba0
+  sharedInstanceID: d383754c-a955-4de5-b4a2-6d2229f623dd
 --- !u!114 &2157752098222202938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8976,7 +8976,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2157752098222202942}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &2157752098222202942
 GameObject:
   m_ObjectHideFlags: 0
